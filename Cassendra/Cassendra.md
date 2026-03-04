@@ -3,6 +3,7 @@
 - KeySpace = Database
 - Table, Row, Columns
 - Each row can have different set of columns
+- SCALABLE, AVALIABLE AND FAULT TOLERANCE
 
 ## Scalability 
 - Data is stored in distributed nodes
@@ -27,4 +28,21 @@
     - QUORUM - Majority Node - balanced
     - ALL - all nodes replicated
 
-![alt text](image-1.png)
+## Write Request
+- 1st writen to Memtable in RAM
+- Once it is full, it is flushed in SSD Table in Disk
+- All req are written to Commit Log file in Disk
+
+## Read Request
+- 1st check the memtables
+- Then SSD tables
+- Contains bloom fliters + Index to make it faster
+
+## Data modeling 
+- No normalization - No Join, No FK
+- Query Driven
+- RDBMS = Entity Driven
+
+## When to Use ?
+- high write throughput
+- It can't have strong consisitency 
